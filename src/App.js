@@ -10,18 +10,8 @@ class App extends Component {
     try {
       const { data } = await axios.get(`http://localhost:3001/api`)
       console.log(data)
-      this.setState({ dataRendered: true })
-      this.renderHTML(await data)
     } catch (error) {
       console.error(error)
-    }
-  }
-
-  renderHTML = html => {
-    if (html) {
-      return html
-    } else {
-      return <h1>Loading...</h1>
     }
   }
 
@@ -30,12 +20,7 @@ class App extends Component {
     return (
       <div className='App'>
         <h1>Spotify App</h1>
-        {this.state.dataRendered ? <h1>Data loaded</h1> : <h1>Data loading</h1>}
-        <div>
-          <button onClick={this.handleRequest}>Authorize</button>
-        </div>
-
-        {this.renderHTML()}
+        <a href='http://localhost:3001'>Log in</a>
       </div>
     )
   }
